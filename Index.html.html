@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>David Dennis — Portfolio</title>
+    <title>David Dennis</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
     <style>
         :root {
             --bg-color: #f4f4f4;
@@ -19,11 +20,12 @@
             box-sizing: border-box;
         }
 
-        body {
+        body, html {
+            height: 100%;
             background-color: var(--bg-color);
             color: var(--text-color);
             font-family: var(--font-main);
-            overflow-x: hidden;
+            overflow: hidden; /* No scrolling for splash page */
             -webkit-font-smoothing: antialiased;
         }
 
@@ -46,120 +48,87 @@
 
         .logo {
             font-weight: 500;
-            font-size: 20px;
+            font-size: 18px;
             text-decoration: none;
             color: black;
             letter-spacing: -1px;
         }
 
-        .nav-links {
-            writing-mode: vertical-rl;
-            transform: rotate(180deg);
-            display: flex;
-            gap: 40px;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: #888;
-            font-size: 13px;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: #000;
-        }
-
-        .contact-trigger {
-            font-size: 13px;
-            text-transform: uppercase;
-            cursor: pointer;
-            writing-mode: vertical-rl;
-            transform: rotate(180deg);
-            color: #000;
-        }
-
-        /* Main Content Layout */
-        main {
-            margin-left: 80px;
-            padding: 60px;
-        }
-
-        .project-header {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 40px;
-            margin-bottom: 40px;
-        }
-
-        .meta-info {
+        .nav-socials {
             display: flex;
             flex-direction: column;
-            gap: 10px;
-            font-size: 14px;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
+            gap: 30px;
+            align-items: center;
         }
 
-        .project-title h1 {
-            font-size: 11vw;
+        .nav-socials a {
+            color: #888;
+            transition: color 0.3s ease;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-socials a:hover {
+            color: #000;
+        }
+
+        .nav-socials i {
+            width: 20px;
+            height: 20px;
+            stroke-width: 1.5px;
+        }
+
+        /* Splash Content */
+        main {
+            margin-left: 80px;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0 10vw;
+        }
+
+        .splash-title h1 {
+            font-size: 10vw;
             line-height: 0.85;
             font-weight: 400;
             letter-spacing: -0.05em;
-            margin-left: -5px; /* Optical alignment */
+            margin-bottom: 40px;
         }
 
-        .description-grid {
+        .splash-info {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            margin-top: 100px;
+            grid-template-columns: auto auto;
+            gap: 80px;
+            border-top: 1px solid var(--border-color);
+            padding-top: 40px;
+            max-width: fit-content;
         }
 
-        .description-text {
-            font-size: 24px;
-            line-height: 1.4;
-            max-width: 600px;
+        .info-block {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .info-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #888;
+            margin-bottom: 10px;
+        }
+
+        .info-value {
+            font-size: 20px;
             font-weight: 300;
         }
 
-        /* Image Containers */
-        .image-container {
-            width: 100%;
-            margin-top: 100px;
-        }
-
-        .placeholder-img {
-            width: 100%;
-            height: 85vh;
-            background-color: #e8e8e8;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 11px;
-            color: #aaa;
-            text-transform: uppercase;
-            letter-spacing: 0.2em;
-        }
-
-        .section-label {
-            position: sticky;
-            top: 60px;
-            font-size: 12px;
-            text-transform: uppercase;
-            color: #888;
-            height: fit-content;
-        }
-
         @media (max-width: 768px) {
-            nav { width: 50px; padding: 20px 0; }
-            main { margin-left: 50px; padding: 20px; }
-            .project-header, .description-grid { grid-template-columns: 1fr; }
-            .project-title h1 { font-size: 18vw; margin-top: 20px; }
-            .nav-links { gap: 20px; }
+            nav { width: 60px; }
+            main { margin-left: 60px; padding: 0 40px; }
+            .splash-title h1 { font-size: 15vw; }
+            .splash-info { grid-template-columns: 1fr; gap: 40px; }
         }
     </style>
 </head>
@@ -167,47 +136,41 @@
 
     <nav>
         <a href="#" class="logo">DD</a>
-        <div class="nav-links">
-            <a href="https://linkedin.com" target="_blank">LinkedIn</a>
-            <a href="https://instagram.com" target="_blank">Instagram</a>
+        
+        <div class="nav-socials">
+            <a href="https://instagram.com" target="_blank" title="Instagram">
+                <i data-lucide="instagram"></i>
+            </a>
+            <a href="https://linkedin.com" target="_blank" title="LinkedIn">
+                <i data-lucide="linkedin"></i>
+            </a>
+            <a href="mailto:hello@daviddennis.com" title="Email">
+                <i data-lucide="mail"></i>
+            </a>
         </div>
-        <a href="mailto:hello@daviddennis.com" class="contact-trigger">Email</a>
-    </nav>
+
+        <div style="height: 20px;"></div> </nav>
 
     <main>
-        <section class="project-header">
-            <div class="meta-info">
-                <span>Selected Works</span>
-                <span>2024—2026</span>
-                <span>David Dennis</span>
-                <span>Creative Direction</span>
-            </div>
-            <div class="project-title">
-                <h1>David Dennis</h1>
-            </div>
-        </section>
-
-        <section class="description-grid">
-            <div class="section-label">Profile</div>
-            <div class="description-text">
-                Independent designer and creative director focusing on digital experiences, brand identity, and the intersection of art and technology.
-                <br><br>
-                This space serves as a curated selection of projects that explore form, function, and the subtle nuances of visual communication.
-            </div>
-        </section>
-
-        <div class="image-container">
-            <div class="placeholder-img">Featured Project 01</div>
+        <div class="splash-title">
+            <h1>David Dennis</h1>
         </div>
 
-        <div class="image-container">
-            <div class="placeholder-img">Featured Project 02</div>
-        </div>
-
-        <div class="image-container" style="margin-bottom: 200px;">
-            <div class="placeholder-img">Featured Project 03</div>
+        <div class="splash-info">
+            <div class="info-block">
+                <span class="info-label">Discipline</span>
+                <span class="info-value">Architect · Designer</span>
+            </div>
+            <div class="info-block">
+                <span class="info-label">Location</span>
+                <span class="info-value">New York · Los Angeles</span>
+            </div>
         </div>
     </main>
 
+    <script>
+        // Initialize the icons
+        lucide.createIcons();
+    </script>
 </body>
 </html>

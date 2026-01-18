@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>David Dennis</title>
     
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 font-family=%22Inter, sans-serif%22 font-weight=%22500%22>DD</text></svg>">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text x='50%' y='55%' dominant-baseline='middle' text-anchor='middle' font-size='60' font-family='sans-serif' font-weight='700'>DD</text></svg>">
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
@@ -28,7 +28,7 @@
             background-color: var(--bg-color);
             color: var(--text-color);
             font-family: var(--font-main);
-            overflow: hidden;
+            overflow: hidden; 
             -webkit-font-smoothing: antialiased;
         }
 
@@ -70,16 +70,10 @@
             color: #000;
         }
 
-        /* Fade-in Animation */
+        /* Animation */
         @keyframes revealUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         /* Main Content Layout */
@@ -89,20 +83,18 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
-            padding-left: 10vw; /* Base left alignment */
+            padding-left: 10vw; 
             align-items: flex-start;
         }
 
         .splash-title h1 {
-            font-size: 10vw;
-            line-height: 0.85;
+            /* Using clamp to prevent the font from getting too big and clipping on small screens */
+            font-size: clamp(4rem, 10vw, 12rem);
+            line-height: 0.9; /* Slightly increased to prevent top-clipping */
             font-weight: 400;
             letter-spacing: -0.05em;
             margin-bottom: 60px;
-            
-            /* Optical alignment: nudge the 'D' slightly left 
-               so the vertical stem aligns with the text below */
-            margin-left: -0.045em; 
+            margin-left: -0.045em; /* Optical alignment */
             
             animation: revealUp 1.2s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
         }
@@ -141,7 +133,7 @@
         @media (max-width: 768px) {
             nav { width: 60px; }
             main { margin-left: 60px; padding-left: 30px; }
-            .splash-title h1 { font-size: 16vw; margin-bottom: 40px; }
+            .splash-title h1 { margin-bottom: 40px; }
             .splash-info { grid-template-columns: 1fr; gap: 40px; }
             .info-value { font-size: 18px; }
         }
@@ -152,15 +144,9 @@
     <nav>
         <a href="#" class="logo">DD</a>
         <div class="nav-socials">
-            <a href="https://www.instagram.com/david_mark_dennis/" target="_blank" title="Instagram">
-                <i data-lucide="instagram"></i>
-            </a>
-            <a href="https://www.linkedin.com/in/davidmarkdennis/" target="_blank" title="LinkedIn">
-                <i data-lucide="linkedin"></i>
-            </a>
-            <a href="mailto:dd@daviddennis.net" title="Email">
-                <i data-lucide="mail"></i>
-            </a>
+            <a href="https://www.instagram.com/david_mark_dennis/" target="_blank"><i data-lucide="instagram"></i></a>
+            <a href="https://www.linkedin.com/in/davidmarkdennis/" target="_blank"><i data-lucide="linkedin"></i></a>
+            <a href="mailto:dd@daviddennis.net"><i data-lucide="mail"></i></a>
         </div>
         <div style="height: 20px;"></div>
     </nav>
